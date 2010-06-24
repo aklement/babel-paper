@@ -16,6 +16,7 @@
 \usepackage{url}
 \usepackage{latexsym}
 \usepackage{graphicx}
+\usepackage{amssymb}
 %\setlength\titlebox{6.5cm}    % You can expand the title box if you
 % really have to
 \usepackage{color}
@@ -29,7 +30,7 @@
 
 \newcommand{\mtodo}[1]{\mnote{\textcolor{red}{#1}}}
 
-\title{Bilingual Lexicon Induction for Less Commonly Used Languages}
+\title{Bilingual Lexicon Induction from Monolingual Sources for Low Resource Languages}
 
 %\author{Blah\\
 %  JHU\\
@@ -45,11 +46,57 @@
 \begin{document}
 \maketitle
 \begin{abstract}
+State of the art statistical machine translation methods rely on the
+availability of substantial amounts of human translated texts (\emph{bitexts})
+for parameter estimation. Such bilingual resources are available for few
+language pairs, and the expense associated with generating them is a fundamental
+obstacle to extending statistical MT for low-resource languages. In this work,
+we exploit a set of cues present in plentiful monolingual data for the task of
+bilingual dictionary induction. In exploting cross-lingual, phrasal
+distributional statistics as one such cue, we employ a novel, space-efficient
+extension to the \emph{locality sensitive hashing} (LSH) scheme.
+
+We give results for an extensive number of languages (paired with English), and
+show the efficacy of each cue in the context of a language pair where plentiful
+bilingual resources are available.
+
 \end{abstract}
 
 \section{Introduction} \label{sect:intro}
 
+
+Statistical methods for machine translation continue to push the state of the
+art in automatic translation. However, they crucially rely on the availability
+of large numbers of translations aligned across two languages. Generation of
+these parallel corpora require the efforts of bilingual speakers and are
+extremely expensive to produce in sufficient quantities to induce a high quality
+statistical translation system. As a result, these methods can not be
+successfully applied to the majority of word's languages and especially those
+less frequently taught. In terms of the community's evaluation of progress, most
+shared tasks involve european languages for which generous quantities of
+multilingual parliament proceedings are available.
+
+At the same time we now have unprecedented access to vast and continually
+expanding monolingual resources. Moreover, they often contain additional
+metadata which can provide non-sentential cues for inducing bilingual resources;
+suggesting we might substantially reduce and eventually eliminate the
+requirement for explicitly aligned bilingual translations. Recent examples
+include exploiting temporal information to induce Named Entity lexicons
+(\cite{Alex, David}), and topic information to generate translations
+(\cite{Mimno}). Moreover, resources such as these are likely to be extremely
+useful for numerous multilingual NLP tasks (\mtodo{Examples}).
+
 \section{Inducing Bilingual Lexicons} \label{sect:lexinduct}
+
+Our goal is to generate bilingual resources for pairs of languages for which we
+have sufficient monolingual data. These languages currently include \mtodo{List
+  languages}.
+
+This article consitutes the first report on this effort: since more data is
+continuously becoming available, we expect to add more languages to this list in
+the future. 
+%We propose to induce \emph{comprehensive} bilingual token and
+%multi-token (phrasal) lexicons for each of those languages and English.
 
 Cues and similarity metrics:
 \begin{itemize}
@@ -67,9 +114,51 @@ Cues and similarity metrics:
   \item rank aggregation
 \end{itemize}
 
-\noindent Evaluation:  tokens for inducing translations.  Evaluation metrics: why precision at top-k?
+
+\section{Contextual Similarity}
+
+Grouping semantically related words through distributional statistics (e.g.
+\cite{Pereira:1993}) is a way to reduce both the search space and associate
+translations. We can find associations between clusters instead of individual
+lexemes or phrases, by intersecting them we can substantially reduce the space
+of possible translations (Fig. \ref{fig:semclusters}). \mtodo{Verbiage is very
+  close to CCB's proposal}.
+
+\begin{figure}
+\centerline{\mbox{\includegraphics[width=3.5in]{figures/morphology}}}
+\caption{Inducing lexicons using contextual similarity.  An example set of word forms for \emph{toad} for English and Russian.}
+\label{fig:cycle} \label{fig:morphology}
+\end{figure}
+
+%% {\bf Unsupervised Morphology Induction.} Many of the languages in our list such
+%% as Russian, Arabic, Korean (\todo{Make sure they end up in our list}) have rich
+%% morphology (Figure \ref{fig:morphology}). These languages are characterized by
+%% morphological rules generating a large number of word forms for the same lexeme
+%% (\todo{Reasonable enough?} and present a substantial challenge for our setting,
+%% since we cannot assume that such linguistic knowledge is available for our
+%% languages of interest. We will exploit alternative unsupervised (such as
+%% \cite{Goldwater}) or weakly supervised techniques to group word forms in order
+%% to collect accurate corpus statistics needed for our methods.
+
+\begin{figure}
+\centerline{\mbox{\includegraphics[width=3.5in]{figures/semclusters}}}
+\caption{Hierarchical clustering:  associations can be inferred between sets of semantically related words.  Intersections between sets e.g. ``flying machines'') can also substantially limit the sets of potential translation candidates. }
+\label{fig:cycle} \label{fig:semclusters}
+\end{figure}
+
+
+\begin{figure}
+\centerline{\mbox{\includegraphics[width=2.8in]{figures/Moses-v-Cosine}}}
+\caption{Moses as compared to cosine.}
+\label{fig:moses-v-cosine}
+\end{figure}
+
+
+
+
 
 \section{Experimental Evaluation} \label{sect:exp}
+\noindent Evaluation:  tokens for inducing translations.  Evaluation metrics: why precision at top-k?
 
 \subsection{Data and Other Resources}
 
@@ -130,9 +219,9 @@ Classification and rank aggregation.
 
 Using cues for MT.
 
-\section*{Acknowledgments}
+%% \section*{Acknowledgments}
 
 \bibliographystyle{acl}
-\bibliography{AlexBib}
+\bibliography{references}
 
 \end{document}
