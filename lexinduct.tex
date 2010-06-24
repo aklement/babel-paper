@@ -30,7 +30,7 @@
 
 \newcommand{\mtodo}[1]{\mnote{\textcolor{red}{#1}}}
 
-\title{Bilingual Lexicon Induction from Monolingual Sources for Low Resource Languages}
+\title{Bilingual Lexicon Induction from Monolingual Sources \\ for Low Resource Languages}
 
 %\author{Blah\\
 %  JHU\\
@@ -46,19 +46,16 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-State of the art statistical machine translation methods rely on the
+Statistical machine translation relies on the
 availability of substantial amounts of human translated texts (\emph{bitexts})
-for parameter estimation. Such bilingual resources are available for few
-language pairs, and the expense associated with generating them is a fundamental
-obstacle to extending statistical MT for low-resource languages. In this work,
-we exploit a set of cues present in plentiful monolingual data for the task of
-bilingual dictionary induction. In exploting cross-lingual, phrasal
-distributional statistics as one such cue, we employ a novel, space-efficient
-extension to the \emph{locality sensitive hashing} (LSH) scheme.
+for parameter estimation. Such bilingual resources are available for relatively few
+language pairs, which presents obstacles to applying current statistical translation models to low-resource languages. In this work, we induce bilingual dictionaries from more plentiful monolingual corpora 
+using a diverse set of cues, including: cross-lingual vector space models, the frequencies of words over time, orthographic similarity, etc.  We report the efficacy of these monolingual cues and contrast their performance for a language pair where plentiful bilingual resources are available.  We further evaluate the accuracy of bilingual dictionaries induced between English and XX, YY, ZZ.  Rather than evaluate only on the 1000 most frequent nouns, as previous work on lexicon induction has done, we further evaluate on a random sample of lower frequency words. 
+We introduce a novel, space-efficient
+extension to the \emph{locality sensitive hashing} (LSH) scheme that exploits cross-lingual, phrasal
+distributional statistics.
 
-We give results for an extensive number of languages (paired with English), and
-show the efficacy of each cue in the context of a language pair where plentiful
-bilingual resources are available.
+
 
 \end{abstract}
 
