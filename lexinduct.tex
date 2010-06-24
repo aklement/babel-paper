@@ -46,13 +46,8 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Statistical machine translation relies on the
-availability of substantial amounts of human translated texts (\emph{bitexts})
-for parameter estimation. Such bilingual resources are available for relatively few
-language pairs, which presents obstacles to applying current statistical translation models to low-resource languages. In this work, we induce bilingual dictionaries from more plentiful monolingual corpora 
-using a diverse set of cues, including: cross-lingual vector space models, the frequencies of words over time, orthographic similarity, etc.  We report the efficacy of these monolingual cues and contrast their performance for a language pair where plentiful bilingual resources are available.  We further evaluate the accuracy of bilingual dictionaries induced between English and XX, YY, ZZ.  Rather than evaluate only on the 1000 most frequent nouns, as previous work on lexicon induction has done, we further evaluate on a random sample of lower frequency words. 
-We introduce a novel, space-efficient
-extension to the \emph{locality sensitive hashing} (LSH) scheme that exploits cross-lingual, phrasal
+Statistical machine translation relies on the availability of substantial amounts of human translated texts. Such bilingual resources are available for relatively few language pairs, which presents obstacles to applying current statistical translation models to low-resource languages. In this work, we induce bilingual dictionaries from more plentiful monolingual corpora  using a diverse set of cues, including: cross-lingual vector space models, the frequencies of words over time, orthographic similarity, etc.  We report the efficacy of these monolingual cues and contrast their performance for a language pair where plentiful bilingual resources are available.  We further evaluate the accuracy of bilingual dictionaries induced between English and XX, YY, ZZ.  Rather than evaluate only on the 1000 most frequent nouns, as previous work on lexicon induction has done, we further evaluate on a random sample of lower frequency words.  We introduce a novel, space-efficient
+extension to the {locality sensitive hashing} (LSH) scheme that exploits cross-lingual, phrasal
 distributional statistics.
 
 
@@ -61,6 +56,7 @@ distributional statistics.
 
 \section{Introduction} \label{sect:intro}
 
+%Current statistical models of translation crucially rely on the availability of large numbers of translations aligned across two languages. Sufficiently large parallel corpora exist only for a limited number of language pairs. As a result, statistical machine translation cannot be successfully applied to the majority of word’s languages.
 
 Statistical methods for machine translation continue to push the state of the
 art in automatic translation. However, they crucially rely on the availability
