@@ -141,10 +141,12 @@ of possible translations (Fig. \ref{fig:semclusters}). \mtodo{Verbiage is very
 
 
 \begin{figure}
-\centerline{\mbox{\includegraphics[width=2.8in]{figures/Moses-v-Cosine}}}
-\caption{Moses as compared to cosine.}
+\centerline{\mbox{\includegraphics[width=2.8in]{figures/Moses-v-Context}}}
+\caption{Moses as compared to Context on europarl.}
 \label{fig:moses-v-cosine}
 \end{figure}
+
+
 
 
 
@@ -175,12 +177,25 @@ Parallel data experiments:
   \item Use Moses lexical tables as seed dictionaries.
 \end{itemize}
 
+%% \begin{figure}
+%% \begin{center}
+%% \includegraphics[width=3in]{figures/mostfreqrand.png}
+%% \caption{Bilingual lexicons from Moses lexical tables vs. using contextual cues.} \label{fig:parvsmono}
+%% \end{center}
+%% \end{figure}
+
 \begin{figure}
-\begin{center}
-\includegraphics[width=3in]{figures/mostfreqrand.png}
-\caption{Bilingual lexicons from Moses lexical tables vs. using contextual cues.} \label{fig:parvsmono}
-\end{center}
+\includegraphics[width=2.8in]{figures/es-freq-europarl}
+\caption{Es results for most frequent terms, on europarl}
+\label{fig:es-freq-europarl}
 \end{figure}
+
+\begin{figure}
+\includegraphics[width=2.8in]{figures/es-rand-euro}
+\caption{Es results for random terms, on europarl}
+\label{fig:es-rand-europarl}
+\end{figure}
+
 
 \subsection{Quality of Individual Cues} 
 
